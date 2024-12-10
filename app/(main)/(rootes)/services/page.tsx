@@ -265,7 +265,7 @@ const PageRef = () => {
         className="relative w-full h-full  bg-pattern4 bg-center  bg-cover rounded-3xl flex items-center justify-start py-32 pb-10  "
       >
         <div className="absolute inset-0 bg-black opacity-40 rounded-3xl"></div>
-        <header className="absolute top-0 left-0 w-[95%] h-20 bg-white z-50 rounded-br-full max-w-[1300px] m-auto flex items-center justify-between pr-20">
+        <header className="absolute top-0 left-0 w-[95%] h-20 bg-white z-50 rounded-br-full max-w-[1300px] m-auto flex items-center justify-between pr-8">
           <Link href="/">
             <Image
               className="w-50 h-40 object-contain "

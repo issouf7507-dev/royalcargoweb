@@ -140,7 +140,7 @@ const PageRef = () => {
         {/* Overlay */}
         <div className="absolute inset-0 bg-black opacity-40 rounded-3xl"></div>
 
-        <header className="absolute top-0 left-0 w-[95%] h-20 bg-white z-50 rounded-br-full max-w-[1300px] m-auto flex items-center justify-between pr-20">
+        <header className="absolute top-0 left-0 w-[95%] h-20 bg-white z-50 rounded-br-full max-w-[1300px] m-auto flex items-center justify-between pr-8">
           <Link href="/">
             <Image
               className="w-50 h-40 object-contain "
@@ -241,141 +241,119 @@ const PageRef = () => {
         </div>
       </motion.section>
 
-      <div className="bg-gradient-to-b  to-blue-700 text-white py-2 px-10 relative z-10">
-        {/* Header Section */}
+      <section className="grid lg:grid-cols-2 mt-10 gap-5">
+        <div className="grid gap-4  mt-10 mb-8">
+          <motion.div
+            initial={{ opacity: 0, y: 32 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{
+              type: "spring",
+              stiffness: 50,
+              duration: 0.8,
+              delay: 0.7,
+            }}
+          >
+            <h2 className="text-xl font-bold text-blue-700 mb-3 flex items-center gap-2 md:text-2xl">
+              Adresse <MapPin size={30} />
+            </h2>
+            <p>
+              Boulevard du Cameroun, Ligne 11, Grand marché de Marcory, Abidjan,
+              Côte d'Ivoire
+            </p>
+          </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-3 mt-5">
-          {/* Contact Info */}
-          <div className="grid gap-8 ">
-            <motion.div
-              initial={{ opacity: 0, y: 32 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{
-                type: "spring",
-                stiffness: 50,
-                duration: 0.8,
-                delay: 0.7,
-              }}
-              className="bg text-black rounded-lg p-6 shadow-lg  bg-blue-200"
-            >
-              <h2 className="text-xl font-bold text-blue-700 mb-3 flex items-center gap-2 md:text-2xl">
-                Adresse <MapPin size={30} />
-              </h2>
-              <p>
-                Boulevard du Cameroun, Ligne 11, Grand marché de Marcory,
-                Abidjan, Côte d'Ivoire
-              </p>
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, y: 32 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{
-                type: "spring",
-                stiffness: 50,
-                duration: 0.8,
-                delay: 0.9,
-              }}
-              className="bg-blue-300 text-black rounded-lg p-6 shadow-lg"
-            >
-              <h2 className="text-xl font-bold text-blue-700 mb-3 flex items-center gap-2 md:text-2xl">
-                Téléphone <PhoneIncoming size={30} />
-              </h2>
+          <motion.div
+            initial={{ opacity: 0, y: 32 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{
+              type: "spring",
+              stiffness: 50,
+              duration: 0.8,
+              delay: 0.9,
+            }}
+            className=" text-black rounded-lg "
+          >
+            <h2 className="text-xl font-bold text-blue-700 mb-3 flex items-center gap-2 md:text-2xl">
+              Téléphone <PhoneIncoming size={30} />
+            </h2>
 
-              <div className="flex items-center gap-4">
-                <p className="font-bold">
-                  +225 <br /> 0564919216
-                </p>
-                <p className="font-bold">
-                  +225 <br /> 0708201212
-                </p>
-                <p className="font-bold">
-                  +86 <br /> 186 2097 5453
-                </p>
-                <p className="font-bold">
-                  +86 <br /> 188 0207 2454
-                </p>
-              </div>
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, y: 32 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{
-                type: "spring",
-                stiffness: 50,
-                duration: 0.8,
-                delay: 1.1,
-              }}
-              className=" text-black rounded-lg p-6 shadow-lg bg-blue-400"
-            >
-              <h2 className="text-xl font-bold text-blue-700 mb-3 flex items-center gap-2 md:text-2xl">
-                Email <Send size={30} />
-              </h2>
-              <Link href="mailto:royalcargo225@gmail.com">
-                <p className="font-bold"> royalcargo225@gmail.com</p>
-              </Link>
-            </motion.div>
-          </div>
+            <div className="flex flex-col items-start gap-4">
+              <p className="">+225 0564919216</p>
 
-          {/* Contact Form */}
-          <div className=" bg-blue-800 p-8 rounded-lg">
-            <h3 className="text-2xl font-bold text-center mb-6">
-              Envoyez-nous un message
-            </h3>
-            <form
-              className="grid gap-4"
-              onSubmit={(e) => {
-                e.preventDefault();
-                toast.success("Votre message a bien été envoyé.");
-                setFormData({ ...formData, nom: "", email: "", message: "" });
-              }}
-            >
-              <input
-                type="text"
-                placeholder="Votre Nom"
-                className="p-3 rounded-lg border
+              <p className="">+225 0708201212</p>
+              <p className="">+86 186 2097 5453</p>
+              <p className="">+86 188 0207 2454</p>
+            </div>
+          </motion.div>
+
+          <motion.div className=" text-black ">
+            <h2 className="text-xl font-bold text-blue-700 mb-3 flex items-center gap-2 md:text-2xl">
+              Email <Send size={30} />
+            </h2>
+            <Link href="mailto:royalcargo225@gmail.com">
+              <p className=""> royalcargo225@gmail.com</p>
+            </Link>
+          </motion.div>
+        </div>
+
+        <div className=" bg-blue-800 p-8 rounded-lg">
+          <h3 className="text-2xl font-bold text-center mb-6">
+            Envoyez-nous un message
+          </h3>
+          <form
+            className="grid gap-4"
+            onSubmit={(e) => {
+              e.preventDefault();
+              toast.success("Votre message a bien été envoyé.");
+              setFormData({ ...formData, nom: "", email: "", message: "" });
+            }}
+          >
+            <input
+              type="text"
+              placeholder="Votre Nom"
+              className="p-3 rounded-lg border
               text-black
               border-blue-600 focus:outline-none focus:ring focus:ring-blue-400"
-                value={formData.nom}
-                onChange={(e) => {
-                  setFormData({ ...formData, nom: e.target.value });
-                }}
-                required
-              />
-              <input
-                type="email"
-                placeholder="Votre Email"
-                className="p-3 rounded-lg border
+              value={formData.nom}
+              onChange={(e) => {
+                setFormData({ ...formData, nom: e.target.value });
+              }}
+              required
+            />
+            <input
+              type="email"
+              placeholder="Votre Email"
+              className="p-3 rounded-lg border
                     text-black
               border-blue-600 focus:outline-none focus:ring focus:ring-blue-400"
-                value={formData.email}
-                onChange={(e) => {
-                  setFormData({ ...formData, email: e.target.value });
-                }}
-                required
-              />
-              <textarea
-                // rows="4"
-                rows={4}
-                placeholder="Votre Message"
-                className="p-3 rounded-lg border
+              value={formData.email}
+              onChange={(e) => {
+                setFormData({ ...formData, email: e.target.value });
+              }}
+              required
+            />
+            <textarea
+              // rows="4"
+              rows={4}
+              placeholder="Votre Message"
+              className="p-3 rounded-lg border
                     text-black
               border-blue-600 focus:outline-none focus:ring focus:ring-blue-400"
-                value={formData.message}
-                onChange={(e) => {
-                  setFormData({ ...formData, message: e.target.value });
-                }}
-                required
-              ></textarea>
-              <Button
-                type="submit"
-                className="bg-blue-600 text-white py-3 rounded-lg font-bold hover:bg-blue-700 transition"
-              >
-                Envoyer
-              </Button>
-            </form>
-          </div>
+              value={formData.message}
+              onChange={(e) => {
+                setFormData({ ...formData, message: e.target.value });
+              }}
+              required
+            ></textarea>
+            <Button
+              type="submit"
+              className="bg-blue-600 text-white py-3 rounded-lg font-bold hover:bg-blue-700 transition"
+            >
+              Envoyer
+            </Button>
+          </form>
         </div>
-      </div>
+      </section>
 
       <footer
         className="relative w-full mb-10 mt-10 bg-pattern4 h-full bg-cover bg-center 
@@ -436,7 +414,6 @@ const PageRef = () => {
           </div>
         </div>
       </footer>
-
       <Dialog open={openDialog} onOpenChange={setOpenDialog}>
         <DialogContent className="sm:max-w-[455px]  ">
           <DialogHeader>
@@ -619,7 +596,6 @@ const PageRef = () => {
           {mutation.isPending && <div>Load</div>}
         </DialogContent>
       </Dialog>
-
       <Sheet open={openSheet} onOpenChange={setOpenSheet}>
         <SheetContent>
           <SheetHeader>
@@ -666,7 +642,6 @@ const PageRef = () => {
           </div>
         </SheetContent>
       </Sheet>
-
       <Sheet open={openSheet2} onOpenChange={setOpenSheet2}>
         <SheetContent className="overflow-y-auto">
           <SheetHeader>
@@ -714,7 +689,6 @@ const PageRef = () => {
           )}
         </SheetContent>
       </Sheet>
-
       <Sheet open={openSheetNav} onOpenChange={setOpenSheetNav}>
         <SheetContent side={"left"} className="w-[40%]">
           <div className="grid gap-4 py-4">
