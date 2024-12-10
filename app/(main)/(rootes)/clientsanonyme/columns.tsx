@@ -259,7 +259,7 @@ export const columns: ColumnDef<DataUsing>[] = [
               "nom"
             )}). NOUS SOMMES RAVIS DE VOUS ANNONCER QUE LE STATUT DE VOTRE COLIS À CHANGER, IL EST MAINTENANT PASSER À **${form
               .watch("etat")
-              .toUpperCase()}**. \nVOUS POUVEZ CONSULTER LES DÉTAILS EN CLIQUANT ICI : https://royalcargo225.com/colis/${
+              .toUpperCase()}**. \nVOUS POUVEZ CONSULTER LES DÉTAILS EN CLIQUANT ICI : https://royalcargo225.com/colistrack/${
               values.trackcode
             }`
           );
