@@ -334,7 +334,7 @@ const PageRef = () => {
           onClick={() => navigation.push("/")}
           className="w-full bg-blue-500 hover:bg-blue-600 mt-3"
         >
-          Retour sur le siet
+          Retour sur le site
         </Button>
       </div>
     </main>
