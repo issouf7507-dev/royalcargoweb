@@ -261,7 +261,7 @@ export const columns: ColumnDef<DataUsing>[] = [
               .watch("etat")
               .toUpperCase()}**. \nVOUS POUVEZ CONSULTER LES DÉTAILS EN CLIQUANT ICI : https://royalcargo225.com/colistrack/${
               values.trackcode
-            }`
+            }\n Contacter nous au +2250585327910`
           );
         });
         if (formData.entries != undefined) {

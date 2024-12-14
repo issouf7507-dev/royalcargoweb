@@ -65,6 +65,7 @@ const PageRef = () => {
   const [openDialogServices, setOpenDialogServices] = useState(false);
   const [openSheet, setOpenSheet] = useState(false);
   const [openSheet2, setOpenSheet2] = useState(false);
+  const [openSheet3, setOpenSheet3] = useState(false);
   const [openSheetNav, setOpenSheetNav] = useState(false);
   const [copied, setCopied] = useState(false);
   const [trackCode, setTrackCode] = useState("");
@@ -218,11 +219,13 @@ const PageRef = () => {
 
     mutation2.mutate(formData, {
       onSuccess(data, variables, context) {
-        console.log(data);
+        // console.log(data);
 
         sendSMS(
           data.reservation.numero,
-          `ROYAL CARGO \nBONJOUR CHER CLIENT (${data.reservation.nom}). NOUS SOMMES RAVIS DE VOUS ANNONCER QUE LE STATUT DE VOTRE COLIS A CHANGÉ, IL EST MAINTENANT PASSÉ À **${data.reservation.etat}**. \nVOUS POUVEZ CONSULTER LES DÉTAILS EN CLIQUANT ICI : https://royalcargo225.com/colis/${data.reservation.trackcode}`
+          `ROYAL CARGO \nBONJOUR CHER CLIENT (${data.reservation.nom}). NOUS SOMMES RAVIS DE VOUS ANNONCER QUE LE STATUT DE VOTRE COLIS A CHANGÉ, IL EST MAINTENANT PASSÉ À **${data.reservation.etat}**. \nVOUS POUVEZ CONSULTER LES DÉTAILS EN CLIQUANT ICI : https://royalcargo225.com/colis/${data.reservation.trackcode}
+          \n Contacter nous au +2250585327910
+          `
         );
 
         setIsLoading(true);
@@ -1228,6 +1231,53 @@ const PageRef = () => {
         </SheetContent>
       </Sheet>
 
+      <Sheet open={openSheet3} onOpenChange={setOpenSheet3}>
+        <SheetContent>
+          <SheetHeader>
+            <SheetTitle>Adresse</SheetTitle>
+            <SheetDescription>
+              Il s'agit de l'adresse à envoyer au fournisseur.
+            </SheetDescription>
+          </SheetHeader>
+          <div className="grid gap-4 py-4">
+            <div ref={gridRef} className="grid">
+              <p>重要须知（埋头）: 包装上必须写明客户的姓名和国外电话号码。</p>
+              {/* <p>外包装盒必须包含以下信息</p> */}
+              <p>
+                客户姓名和编号 : ({trackingData[0] && trackingData[0].nom}{" "}
+                {trackingData[0] && trackingData[0].numero}{" "}
+                {trackingData[0] && trackingData[0].service})
+              </p>
+              <p>是否有内置电池。</p>
+              <p>中国广州市越秀区环市中路205号恒生大厦B座903-2</p>
+              <p>电话 : +86 186 2097 5453 / +86 188 0207 2454</p>
+              <p>注意 : 不接受快递费。</p>
+              <p>收货时间 : 12.00 - 20.30</p>
+              <p>违禁品将被拒收。</p>
+              <p>
+                如有虚假申报，在机场进行虚假申报或扣押货物的所有相关费用均由当事人自行承担！
+              </p>
+            </div>
+
+            <div className="flex items-center gap-3">
+              <Button
+                className="w-full bg-blue-500  hover:bg-green-700"
+                onClick={handleCopyAdress}
+              >
+                <Copy className="mr-2" />
+                Copier
+              </Button>
+              <Button
+                className="w-full bg-blue-500 hover:bg-green-700"
+                onClick={handleShare}
+              >
+                <Forward className="mr-2" /> Partager
+              </Button>
+            </div>
+          </div>
+        </SheetContent>
+      </Sheet>
+
       <Sheet open={openSheet2} onOpenChange={setOpenSheet2}>
         <SheetContent className="overflow-y-auto">
           <SheetHeader>
@@ -1482,7 +1532,7 @@ const PageRef = () => {
                       <div>
                         <Button
                           className="w-full bg-blue-500 hover:bg-blue-600"
-                          onClick={() => setOpenSheet(true)}
+                          onClick={() => setOpenSheet3(true)}
                         >
                           Voir l'adresse
                         </Button>

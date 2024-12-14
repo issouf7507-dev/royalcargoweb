@@ -127,7 +127,7 @@ const PageRef = () => {
 
         sendSMS(
           data.reservation.numero,
-          `ROYAL CARGO \nBONJOUR CHER CLIENT (${data.reservation.nom}). NOUS SOMMES RAVIS DE VOUS ANNONCER QUE LE STATUT DE VOTRE COLIS A CHANGÉ, IL EST MAINTENANT PASSÉ À **${data.reservation.etat}**. \nVOUS POUVEZ CONSULTER LES DÉTAILS EN CLIQUANT ICI : https://royalcargo225.com/colis/${data.reservation.trackcode}`
+          `ROYAL CARGO \nBONJOUR CHER CLIENT (${data.reservation.nom}). NOUS SOMMES RAVIS DE VOUS ANNONCER QUE LE STATUT DE VOTRE COLIS A CHANGÉ, IL EST MAINTENANT PASSÉ À **${data.reservation.etat}**. \nVOUS POUVEZ CONSULTER LES DÉTAILS EN CLIQUANT ICI : https://royalcargo225.com/colistrack/${data.reservation.trackcode} \n Contacter nous au +2250585327910`
         );
 
         setIsLoading(true);
