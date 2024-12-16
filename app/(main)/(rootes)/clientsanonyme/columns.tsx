@@ -73,9 +73,9 @@ const formSchema = z.object({
   images: z.string(),
   images2: z.string(),
   images3: z.string(),
-  poids: z.number(),
+  poids: z.string(),
   prix: z.number(),
-  tailes: z.number(),
+  tailes: z.string(),
   quantite: z.number(),
   // userId: z.string(),
 
@@ -98,9 +98,9 @@ export type DataUsing = {
   images: string;
   images2: string;
   images3: string;
-  poids: number;
+  poids: string;
   prix: number;
-  tailes: number;
+  tailes: string;
   quantite: number;
   // userId: string;
   typec: string;
@@ -347,10 +347,8 @@ export const columns: ColumnDef<DataUsing>[] = [
                             <Input
                               placeholder="Poids"
                               {...field}
-                              type="number"
-                              onChange={(e) =>
-                                field.onChange(parseInt(e.target.value))
-                              }
+                              type="text"
+                              onChange={(e) => field.onChange(e.target.value)}
                               required
                             />
                           </FormControl>
@@ -422,10 +420,8 @@ export const columns: ColumnDef<DataUsing>[] = [
                               <Input
                                 placeholder="Tailes"
                                 {...field}
-                                type="number"
-                                onChange={(e) =>
-                                  field.onChange(parseInt(e.target.value))
-                                }
+                                type="text"
+                                onChange={(e) => field.onChange(e.target.value)}
                               />
                             </FormControl>
                             <FormMessage />

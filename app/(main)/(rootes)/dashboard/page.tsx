@@ -299,9 +299,9 @@ const PageRef = () => {
                     </CardDescription>
                   </CardHeader>
                   <CardContent className="  overflow-y-scroll">
-                    <RecentSales
+                    {/* <RecentSales
                       queryData2={queryData2.data && queryData2.data}
-                    />{" "}
+                    />{" "} */}
                   </CardContent>
                 </Card>
               </div>
